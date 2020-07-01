@@ -4,6 +4,8 @@
 		public function __construct(){
 			$this->curso=$this->model('curso');
 			$this->tema=$this->model('tema');
+			$this->desarrollo=$this->model('desarrollo');
+			$this->upload=$this->model('upload');
 		}
 		public function index(){
 			$this->view('pages/dashboard/index');
@@ -11,6 +13,19 @@
 		public function curso(){
 			$data=$this->curso->registros();
 			$this->view('pages/dashboard/curso',$data);
+		}
+		public function tema($idTema){
+			$this->view('pages/dashboard/tema');
+		}
+		public function desarrollo($idTema){
+			$tema=$this->tema->registro($idTema);
+			$desarrollo=$this->desarrollo->registro($idTema);
+			$data=[
+				"desarrollo"=>["IdDesarrollo"=>$desarrollo->IdDesarrollo,"body"=>html_entity_decode($desarrollo->body)],
+				"tema"=>$tema,
+			];
+			echo json_encode($data);
+			return;
 		}
 		
 		public function listtema($curso){
@@ -210,6 +225,86 @@
 					echo json_encode([
 						'error'=>false,
 						'message'=>'Los datos se registraron con exito',
+					]);
+				}
+				else{
+					echo json_encode([
+						'error'=>true,
+						'message'=>'Rellena todo los campos requeridos',
+					]);
+				}
+			}
+			else{
+				echo json_encode([
+					'error'=>true,
+					'message'=>'acesso denegado',
+				]);
+			}	
+		}
+		public function createdesarrollo(){
+			if ($_POST['id']) {
+				$body=trim($_POST['body']);		
+				$idTema=trim($_POST['id']);	
+				$idDesarrollo=trim($_POST['idDesarrollo']);	
+				if (!empty($body)&&!empty($idTema)) {
+					$uploadDir = 'public/assets/images/'; 
+				
+					if($idDesarrollo==''){
+						$this->desarrollo->insertar(htmlentities($body),$idTema);
+					}
+					else{
+						$this->desarrollo->editar(htmlentities($body),$idDesarrollo);
+					}
+					echo json_encode([
+						'error'=>false,
+						'message'=>'Los datos se registraron con exito',
+					]);
+				}
+				else{
+					echo json_encode([
+						'error'=>true,
+						'message'=>'Rellena todo los campos requeridos',
+					]);
+				}
+			}
+			else{
+				echo json_encode([
+					'error'=>true,
+					'message'=>'acesso denegado',
+				]);
+			}	
+		}
+		public function uploadarchive(){
+			if ($_FILES["file"]) {
+				if (!empty($_FILES["file"])) {
+					$uploadDir = 'public/assets/images/'; 
+					$fileName =$this->generateRandomString().''.basename($_FILES["file"]["name"]); 
+					$targetFilePath = $uploadDir . $fileName; 
+					$fileType = pathinfo($targetFilePath, PATHINFO_EXTENSION); 
+					
+					// Allow certain file formats 
+					$allowTypes = array('jpg', 'png', 'jpeg'); 
+					$uploadedFile='';
+					if(in_array($fileType, $allowTypes)){
+						// Upload file to the server 
+						if(move_uploaded_file($_FILES["file"]["tmp_name"], $targetFilePath)){ 
+							$uploadedFile = $fileName; 
+						}else{ 
+							$uploadStatus = 0; 
+							$response['message'] = 'Sorry, there was an error uploading your file.'; 
+						} 
+					}
+					else{ 
+						$uploadStatus = 0; 
+						$response['message'] = 'Sorry, only PDF, DOC, JPG, JPEG, & PNG files are allowed to upload.'; 
+					}
+
+					$nameImage=$uploadedFile;
+					$this->upload->insertar($fileName,$nameImage);
+					echo json_encode([
+						'error'=>false,
+						'message'=>'Los datos se registraron con exito',
+						'data'=>$nameImage,
 					]);
 				}
 				else{

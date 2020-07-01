@@ -21,6 +21,8 @@ function openModalEditTema(data){
     $("#nombre").val(nombreTema);
     $("#objetivo").val(objetivoTema);
     $("#nameImage").val(imagen)
+
+    $("#desarrollo_url").attr("href","?url=dashboard/tema/"+IdTema)
     $("#form-modal-tema-edit").modal("show")
 }
 function listarTema(id){
@@ -60,7 +62,7 @@ function listarCurso(){
                 temas.forEach(el=>{
                     var dataJson=JSON.stringify(el);
                     temasH+=`<a href="#" onclick=\'openModalEditTema(${dataJson})\' class="temas">
-                        ${el.nombreTema.trim()}
+                        ${el.nombreTema}
                     </a>`;
                 })
 

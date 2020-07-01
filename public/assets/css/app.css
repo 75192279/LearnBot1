@@ -11,6 +11,12 @@ body{
 .J-color-b{
     color: black !important;
 }
+.J-color-clare{
+    background-color: #f9f9f9;
+}
+.ql-editor{
+    min-height: 350px;
+}
 .temas{
     padding: 5px 10px;
     margin: 2px;
@@ -27,4 +33,8 @@ body{
 }
 .btn-full{
     width: 100%;
+}
+.stats{
+    display: flex;
+    flex-wrap: wrap;
 }

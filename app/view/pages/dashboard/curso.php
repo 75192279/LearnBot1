@@ -155,6 +155,7 @@
                     </div>
                 </div>
                 <div class="modal-footer">
+                    <a href="?url=dashboard/tema" id="desarrollo_url" class="btn btn-primary pull-right">Desarrollo</a>
                     <button type="submit" class="btn btn-primary pull-right">Editar </button>
                     <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
             </div>

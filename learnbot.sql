@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: localhost:3306
--- Tiempo de generación: 17-06-2020 a las 01:25:01
+-- Tiempo de generación: 01-07-2020 a las 06:42:49
 -- Versión del servidor: 5.7.27-0ubuntu0.18.04.1
 -- Versión de PHP: 7.2.24-0ubuntu0.18.04.4
 
@@ -44,7 +44,7 @@ INSERT INTO `tblasignatura` (`IdAsignatura`, `nombreAsig`, `Descripcion`, `objet
 (3, 'Ciencia y ambiente', 'Es un área que contribuye al desarrollo integral de la persona, en relación con la naturaleza de la cual forma parte, con la tecnología y con su ambiente, en el marco de una cultura científica.', 'Desarrollar capacidades y conocimientos actitudes científicas atraves de actividades vivenciales y indagatorias.', NULL),
 (4, 'Personal Social', 'Asignatura dirigida a alos estudiantes de 6to grado de nivel primaria', 'Contribuir al desarrollo integral de la alumna como persona y como miembro activo de la sociedad.', NULL),
 (5, 'Educación Religiosa', 'Es aquella que se desarrolla dentro de la modalidad de la educación formal, en relación con los fines y métodos propios de la educación escolar.', 'Potenciar y desarrollar en la formación integral de la persona, la dimensión religiosa, espiritual y trascendente, para que, desde la perspectiva cristiana, les facilite una opción de fe y compromiso coherente en el quehacer cotidiano de sus propios contextos.', NULL),
-(6, 'Ingles', 'Incluyen audio, pronunciación, vocabulario, explicaciones, ilustraciones, gramática, ejercicios con respuesta, consejos para aprender más fácilmente y actividades para practicar.', 'Lograr una competencia comunicativa en inglés satisfactoria y con ello, pueda el alumno interactuar en diversos escenarios.', NULL);
+(6, 'Ingles', 'Incluyen audio, pronunciación, vocabulario, explicaciones, ilustraciones, gramática, ejercicios con respuesta, consejos para aprender más fácilmente y actividades para practicar.', 'Lograr una competencia comunicativa en inglés satisfactoria y con ello, pueda el alumno interactuar en diversos escenarios.', 'tci6HRINE9maxresdefault.jpg');
 
 -- --------------------------------------------------------
 
@@ -54,13 +54,17 @@ INSERT INTO `tblasignatura` (`IdAsignatura`, `nombreAsig`, `Descripcion`, `objet
 
 CREATE TABLE `tbldesarrollo` (
   `IdDesarrollo` int(11) NOT NULL,
-  `definicionDesarrollo` text NOT NULL,
-  `subtitulos` varchar(255) NOT NULL,
-  `subtituloDesarrollo` text NOT NULL,
-  `ejemplos` text NOT NULL,
-  `URLDesarrollo` varchar(255) NOT NULL,
+  `body` text NOT NULL,
   `IdTema` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Volcado de datos para la tabla `tbldesarrollo`
+--
+
+INSERT INTO `tbldesarrollo` (`IdDesarrollo`, `body`, `IdTema`) VALUES
+(6, '&lt;h1&gt;Teor&iacute;a de n&uacute;meros&lt;/h1&gt;&lt;p&gt;La teor&iacute;a de n&uacute;meros es la rama de las matem&aacute;ticas que estudia las propiedades de los n&uacute;meros, en particular los enteros, pero m&aacute;s en general, estudia las propiedades de los anillos de n&uacute;meros: anillos &iacute;ntegros que contienen a a trav&eacute;s de un morfismo finito e inyectivo.&amp;nbsp;&lt;a href=&quot;https://es.wikipedia.org/wiki/Teor%C3%ADa_de_n%C3%BAmeros&quot; target=&quot;_blank&quot; style=&quot;color: rgb(26, 13, 171);&quot;&gt;Wikipedia&lt;/a&gt;&lt;/p&gt;&lt;p&gt;&lt;img src=&quot;public/assets/images/AQNzmfguywmaxresdefault.jpg&quot;&gt;&lt;/p&gt;', 25),
+(7, '&lt;p&gt;El presente continuo o presente progresivo, es uno de los tiempos verbales del presente usados en el ingl&eacute;s, los otros son el presente simple y presente perfecto. Todos ellos pueden ser usados tanto en el modo indicativo como en el subjuntivo.&amp;nbsp;&lt;a href=&quot;https://es.wikipedia.org/wiki/Presente_continuo&quot; target=&quot;_blank&quot; style=&quot;color: rgb(26, 13, 171);&quot;&gt;Wikipedia&lt;/a&gt;&lt;/p&gt;', 51);
 
 -- --------------------------------------------------------
 
@@ -145,8 +149,8 @@ INSERT INTO `tbltemass` (`IdTema`, `nombreTema`, `objetivoTema`, `mapaMentallTem
 (48, 'Narración', 'Cuando hayas estudiado el contenido de este tema, identificaras que alimentos se debe consumir para reducir el riesgo de desarrollar enfermedades relacionadas con la alimentación.', 'http://angelamariasuarezramirez.blogspot.com/2019/07/geometria-quinto.html', 2, NULL),
 (49, 'Acentuación', 'Cuando hayas estudiado el contenido de este tema, identificaras que alimentos se debe consumir para reducir el riesgo de desarrollar enfermedades relacionadas con la alimentación.', 'http://angelamariasuarezramirez.blogspot.com/2019/07/geometria-quinto.html', 2, NULL),
 (50, 'Pronombre', 'Cuando hayas estudiado el contenido de este tema, identificaras que alimentos se debe consumir para reducir el riesgo de desarrollar enfermedades relacionadas con la alimentación.', 'http://angelamariasuarezramirez.blogspot.com/2019/07/geometria-quinto.html', 2, NULL),
-(51, 'Present Continuous', 'Cuando hayas estudiado el contenido de este tema, identificaras que alimentos se debe consumir para reducir el riesgo de desarrollar enfermedades relacionadas con la alimentación.', 'http://angelamariasuarezramirez.blogspot.com/2019/07/geometria-quinto.html', 6, NULL),
-(52, 'Simple Present', 'Cuando hayas estudiado el contenido de este tema, identificaras que alimentos se debe consumir para reducir el riesgo de desarrollar enfermedades relacionadas con la alimentación.', 'http://angelamariasuarezramirez.blogspot.com/2019/07/geometria-quinto.html', 6, NULL),
+(51, 'Present Continuous', 'Cuando hayas estudiado el contenido de este tema, identificaras que alimentos se debe consumir para reducir el riesgo de desarrollar enfermedades relacionadas con la alimentación.', 'http://angelamariasuarezramirez.blogspot.com/2019/07/geometria-quinto.html', 6, 'p0dTxYzxQiCaptura de pantalla_2020-05-27_13-31-00.png'),
+(52, 'Simple Present', 'Cuando hayas estudiado el contenido de este tema, identificaras que alimentos se debe consumir para reducir el riesgo de desarrollar enfermedades relacionadas con la alimentación.', 'http://angelamariasuarezramirez.blogspot.com/2019/07/geometria-quinto.html', 6, 'Z4qJ9eQGXjCaptura de pantalla_2020-05-27_13-31-00.png'),
 (53, 'Simple Present or Present', 'Cuando hayas estudiado el contenido de este tema, identificaras que alimentos se debe consumir para reducir el riesgo de desarrollar enfermedades relacionadas con la alimentación.', 'http://angelamariasuarezramirez.blogspot.com/2019/07/geometria-quinto.html', 6, NULL),
 (54, 'Past Continuous', 'Cuando hayas estudiado el contenido de este tema, identificaras que alimentos se debe consumir para reducir el riesgo de desarrollar enfermedades relacionadas con la alimentación.', 'http://angelamariasuarezramirez.blogspot.com/2019/07/geometria-quinto.html', 6, NULL),
 (55, 'Present Perfect', 'Cuando hayas estudiado el contenido de este tema, identificaras que alimentos se debe consumir para reducir el riesgo de desarrollar enfermedades relacionadas con la alimentación.', 'http://angelamariasuarezramirez.blogspot.com/2019/07/geometria-quinto.html', 6, NULL),
@@ -166,6 +170,32 @@ CREATE TABLE `tblvideoblog` (
   `Url_Video` text NOT NULL,
   `IdTema` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `tlbupload`
+--
+
+CREATE TABLE `tlbupload` (
+  `id` int(11) NOT NULL,
+  `name` varchar(255) COLLATE utf8_spanish_ci DEFAULT NULL,
+  `url` varchar(255) COLLATE utf8_spanish_ci DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci;
+
+--
+-- Volcado de datos para la tabla `tlbupload`
+--
+
+INSERT INTO `tlbupload` (`id`, `name`, `url`) VALUES
+(1, 'kUUtMmjEwyboletin-informativo-la-celula-2013-1-638.jpg', 'kUUtMmjEwyboletin-informativo-la-celula-2013-1-638.jpg'),
+(2, 'Pa6bSEiUWIboletin-informativo-la-celula-2013-3-638.jpg', 'Pa6bSEiUWIboletin-informativo-la-celula-2013-3-638.jpg'),
+(3, 'po1xSYcHCI94708776_114894036862073_3071818115416326144_n.jpg', 'po1xSYcHCI94708776_114894036862073_3071818115416326144_n.jpg'),
+(4, 'G2FbQdwdqz51YQ84tBVHL._AC_SX425_.jpg', 'G2FbQdwdqz51YQ84tBVHL._AC_SX425_.jpg'),
+(5, 'b3w9JCWXcL51YQ84tBVHL._AC_SX425_.jpg', 'b3w9JCWXcL51YQ84tBVHL._AC_SX425_.jpg'),
+(6, '9RlnVBrX3Cimage (1).jpeg', '9RlnVBrX3Cimage (1).jpeg'),
+(7, 'mYmmAfLAmximage.jpeg', 'mYmmAfLAmximage.jpeg'),
+(8, 'AQNzmfguywmaxresdefault.jpg', 'AQNzmfguywmaxresdefault.jpg');
 
 --
 -- Índices para tablas volcadas
@@ -206,14 +236,30 @@ ALTER TABLE `tblvideoblog`
   ADD UNIQUE KEY `IdTema` (`IdTema`);
 
 --
+-- Indices de la tabla `tlbupload`
+--
+ALTER TABLE `tlbupload`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- AUTO_INCREMENT de las tablas volcadas
 --
 
+--
+-- AUTO_INCREMENT de la tabla `tbldesarrollo`
+--
+ALTER TABLE `tbldesarrollo`
+  MODIFY `IdDesarrollo` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 --
 -- AUTO_INCREMENT de la tabla `tbltemass`
 --
 ALTER TABLE `tbltemass`
   MODIFY `IdTema` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=60;
+--
+-- AUTO_INCREMENT de la tabla `tlbupload`
+--
+ALTER TABLE `tlbupload`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 --
 -- Restricciones para tablas volcadas
 --

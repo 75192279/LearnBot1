@@ -11,7 +11,7 @@
 							<div class="row no-gutters">
 								<div class="col-md-4">
 									<?php
-										$imagen="public/assets/images/asig.jpg";
+										$imagen="public/assets/images/matematica.jpeg";
 										if($item->imagen!=""){
 											$imagen='public/assets/images/'.$item->imagen;
 										}

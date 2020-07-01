@@ -19,6 +19,10 @@
   <link href="public/assetsadmin/demo/demo.css" rel="stylesheet" />
   <link href="public/assets/css/app.css" rel="stylesheet" />
 
+    <link href="//cdn.quilljs.com/1.3.6/quill.snow.css" rel="stylesheet">
+    <link href="//cdn.quilljs.com/1.3.6/quill.bubble.css" rel="stylesheet">
+    <link href="//cdn.quilljs.com/1.3.6/quill.core.css" rel="stylesheet">
+
 </head>
 
 <body class="dark-edition">
