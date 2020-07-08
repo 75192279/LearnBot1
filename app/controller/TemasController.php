@@ -3,6 +3,7 @@
 		public function __construct(){
 			$this->tema=$this->model('tema');
 			$this->desarrollo=$this->model('desarrollo');
+			$this->glosario=$this->model('glosario');
 		}
 		public function list($curso){
 			
@@ -19,6 +20,16 @@
 				"tema"=>$tema,
 			];
             $this->view('pages/desarrollo',$data);
+			return;
+		}
+		public function glosario($idTema){
+			$tema=$this->tema->registro($idTema);
+			$glosario=$this->glosario->registro($idTema);
+			$data=[
+				"glosario"=>$glosario,
+				"tema"=>$tema,
+			];
+            $this->view('pages/glosario',$data);
 			return;
 		}		
 	}

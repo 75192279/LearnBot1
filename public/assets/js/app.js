@@ -23,6 +23,7 @@ function openModalEditTema(data){
     $("#nameImage").val(imagen)
 
     $("#desarrollo_url").attr("href","?url=dashboard/tema/"+IdTema)
+    $("#glosario_url").attr("href","?url=dashboard/glosario/"+IdTema)
     $("#form-modal-tema-edit").modal("show")
 }
 function listarTema(id){
@@ -69,7 +70,7 @@ function listarCurso(){
 
                 
                 html+=`
-                <div class="col-xl-4 col-lg-12">
+                    <div class="col-xl-4 col-lg-12">
                     <div class="card card-chart">
                         <div class="card-header J-card-m-h" style="overflow: hidden;height: 200px;">
                             <img src="${imagen}" class="card-img" alt="...">

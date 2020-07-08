@@ -11,7 +11,7 @@
                 </a>
             </div>
         </div>
-        <div class="row" id="list-curso">
+        <div class="row col-lg-12" id="list-curso">
             
         </div>
           
@@ -155,9 +155,10 @@
                     </div>
                 </div>
                 <div class="modal-footer">
+                    <a href="?url=dashboard/glosario" id="glosario_url" class="btn btn-primary pull-right">Glosario</a>
                     <a href="?url=dashboard/tema" id="desarrollo_url" class="btn btn-primary pull-right">Desarrollo</a>
                     <button type="submit" class="btn btn-primary pull-right">Editar </button>
-                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+                    <!-- <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button> -->
             </div>
             </form>
 

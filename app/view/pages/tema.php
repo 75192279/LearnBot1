@@ -24,7 +24,8 @@
 									<h5 class="card-title"><a href="?url=temas/desarrollo/<?php echo $item->IdTema; ?>"><?php echo $item->nombreTema; ?></a></h5>
 									<p class="card-text">
                                        <b>Objetivo:</b> <?php echo $item->objetivoTema; ?><br><br>
-                                        <b>MapaMental:</b><a href="<?php echo $item->mapaMentallTema; ?>">Visitar a esta pagina</a>                        
+                                        <b>MapaMental:</b><a href="<?php echo $item->mapaMentallTema; ?>">Visitar a esta pagina</a>
+										<b>Glosario:</b><a href="?url=temas/glosario/<?php echo $item->IdTema; ?>">Ver glosario</a>
 									</p>
 									<a href="?url=temas/desarrollo/<?php echo $item->IdTema; ?>">Ver mas...</a>
 								</div>

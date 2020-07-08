@@ -5,6 +5,7 @@
 			$this->curso=$this->model('curso');
 			$this->tema=$this->model('tema');
 			$this->desarrollo=$this->model('desarrollo');
+			$this->glosario=$this->model('glosario');
 			$this->upload=$this->model('upload');
 		}
 		public function index(){
@@ -14,6 +15,9 @@
 			$data=$this->curso->registros();
 			$this->view('pages/dashboard/curso',$data);
 		}
+		public function glosario(){
+			$this->view('pages/dashboard/glosario');
+		}
 		public function tema($idTema){
 			$this->view('pages/dashboard/tema');
 		}
@@ -22,6 +26,16 @@
 			$desarrollo=$this->desarrollo->registro($idTema);
 			$data=[
 				"desarrollo"=>["IdDesarrollo"=>$desarrollo->IdDesarrollo,"body"=>html_entity_decode($desarrollo->body)],
+				"tema"=>$tema,
+			];
+			echo json_encode($data);
+			return;
+		}
+		public function glosarios($idTema){
+			$tema=$this->tema->registro($idTema);
+			$glosario=$this->glosario->registro($idTema);
+			$data=[
+				"glosario"=>$glosario,
 				"tema"=>$tema,
 			];
 			echo json_encode($data);
@@ -273,6 +287,63 @@
 					'message'=>'acesso denegado',
 				]);
 			}	
+		}
+		public function createglosario(){
+			if ($_POST['id']) {
+				$titulo=trim($_POST['titulo']);		
+				$idTema=trim($_POST['id']);	
+				$descripcion=trim($_POST['descripcion']);	
+				if (!empty($titulo)&&!empty($idTema)) {
+				
+					$this->glosario->insertar($titulo,$descripcion,$idTema);
+
+					echo json_encode([
+						'error'=>false,
+						'message'=>'Los datos se registraron con exito',
+					]);
+				}
+				else{
+					echo json_encode([
+						'error'=>true,
+						'message'=>'Rellena todo los campos requeridos',
+					]);
+				}
+			}
+			else{
+				echo json_encode([
+					'error'=>true,
+					'message'=>'acesso denegado',
+				]);
+			}
+		}
+		
+		public function updateglosario(){
+			if ($_POST['id']) {
+				$titulo=trim($_POST['titulo']);		
+				$idGlosario=trim($_POST['id']);	
+				$descripcion=trim($_POST['descripcion']);	
+				if (!empty($titulo)&&!empty($idGlosario)) {
+				
+					$this->glosario->editar($titulo,$descripcion,$idGlosario);
+
+					echo json_encode([
+						'error'=>false,
+						'message'=>'Los datos se actualizaron con exito',
+					]);
+				}
+				else{
+					echo json_encode([
+						'error'=>true,
+						'message'=>'Rellena todo los campos requeridos',
+					]);
+				}
+			}
+			else{
+				echo json_encode([
+					'error'=>true,
+					'message'=>'acesso denegado',
+				]);
+			}
 		}
 		public function uploadarchive(){
 			if ($_FILES["file"]) {
